@@ -1,8 +1,10 @@
-# React + Vite
+# React-re-render
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- This shows how we can reduce re-render in react
+- It happens when:
+    - A state variable that is being used inside a component changes.
+    - A parent component re-render triggers all children to re-rendering
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Ways to solve:
+    - If all the changing code with render is pushed out of parent then it can minimise re-render. Make a different component for the state that changes and add it to the parent component it will reduce re-render. Although the parent re-renders despite all the static code will remain identical
+    - Another way is to use **React.memo**.
